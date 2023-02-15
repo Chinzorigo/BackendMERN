@@ -1,7 +1,7 @@
 const express = require("express");
 
 const {
-  getInventory,
+  getInventorys,
   getInventory,
   createInventory,
   updateInventory,
@@ -11,7 +11,7 @@ const {
 const router = express.Router();
 
 //api/users
-router.route("/").get(getInventory).post(createInventory);
+router.route("/").get(getInventorys).post(createInventory);
 
 router
   .route("/:id")

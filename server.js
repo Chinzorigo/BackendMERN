@@ -14,6 +14,7 @@ const logger = require("./middleware/logger");
 
 // Router оруулж ирэх
 const usersRoutes = require("./routes/Users");
+const inventoryRoutes = require("./routes/Inventory");
 
 // create a write stream (in append mode)
 var accessLogStream = rfs.createStream("access.log", {
@@ -29,6 +30,8 @@ app.use(express.json());
 app.use(logger);
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use("/api/users", usersRoutes);
+app.use("/api/inventory", inventoryRoutes);
+
 
 const server = app.listen(
   process.env.PORT,
