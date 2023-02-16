@@ -59,3 +59,4 @@
 ::1 - - [16/Feb/2023:12:32:14 +0000] "DELETE /api/login/63ee216faf62bc4629faffb1 HTTP/1.1" 200 158 "-" "PostmanRuntime/7.29.2"
 ::1 - - [16/Feb/2023:12:32:29 +0000] "GET /api/login/63ee216faf62bc4629faffb1 HTTP/1.1" 400 100 "-" "PostmanRuntime/7.29.2"
 ::1 - - [16/Feb/2023:12:32:37 +0000] "GET /api/login HTTP/1.1" 200 310 "-" "PostmanRuntime/7.29.2"
+::1 - - [16/Feb/2023:15:34:51 +0000] "GET /api/category HTTP/1.1" 200 26 "-" "PostmanRuntime/7.29.2"

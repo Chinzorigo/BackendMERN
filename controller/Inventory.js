@@ -2,16 +2,16 @@ const Inventory = require("../models/Inventory");
 
 exports.getInventorys = async (req, res, next) => {
   try {
-    const inventorys = await Inventory.find();
+    const inventories = await Inventory.find();
 
     res.status(200).json({
       success: true,
-      data: inventorys,
+      data: inventories,
     });
   } catch (err) {
     res.status(400).json({
       success: false,
-      error: err,
+      error: err
     });
   }
 };
