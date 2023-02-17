@@ -18,7 +18,7 @@ exports.getCategories = async (req, res, next) => {
 exports.getCategory = async (req, res, next) => {
     try {
         const category = await Category.findById(req.params.id);
-        if (!inventory) {
+        if (!category) {
             return res.status(400).json({
                 success: false,
                 error: req.params.id + "ID-тай категори олдсонгүй."
