@@ -17,6 +17,7 @@ const usersRoutes = require("./routes/Users");
 const inventoryRoutes = require("./routes/Inventory");
 const loginRoutes = require("./routes/Login");
 const categoryRoutes = require("./routes/Category");
+const promotionRoutes = require("./routes/Promotion");
 
 // create a write stream (in append mode)
 var accessLogStream = rfs.createStream("access.log", {
@@ -35,6 +36,7 @@ app.use("/api/users", usersRoutes);
 app.use("/api/inventory", inventoryRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/category", categoryRoutes);
+app.use("/api/promotion",promotionRoutes);
 
 
 const server = app.listen(

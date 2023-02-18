@@ -17,14 +17,14 @@ const PromotionSchema = new mongoose.Schema({
         
     },
     startDate: { 
-        type:Date,
+        type: String,
         required: true,
-        default: Date,
+        // default: Date,
     },
     endDate: {
-        type:Date,
+        type: String,
         required: true,
-        default: Date
+        // default: Date
     },
     createdAt: {
         type: Date,
@@ -33,4 +33,4 @@ const PromotionSchema = new mongoose.Schema({
 
 });
 
-modulte.exports = mongoose.model("Promotion", PromotionSchema);
+module.exports = mongoose.model("Promotion", PromotionSchema);
