@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const CategorySchema = new mongoose.Schema({
-    name:{
+    categoryName:{
         type:String,
         required: [true, "Category оруулна уу"],
         unique: false,
