@@ -14,10 +14,11 @@ const logger = require("./middleware/logger");
 
 // Router оруулж ирэх
 const usersRoutes = require("./routes/Users");
-const inventoryRoutes = require("./routes/Inventory");
+const productRoutes = require("./routes/Product");
 const loginRoutes = require("./routes/Login");
 const categoryRoutes = require("./routes/Category");
 const promotionRoutes = require("./routes/Promotion");
+const productDetailRoutes = require("./routes/ProductDetail");
 
 // create a write stream (in append mode)
 var accessLogStream = rfs.createStream("access.log", {
@@ -33,7 +34,8 @@ app.use(express.json());
 app.use(logger);
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use("/api/users", usersRoutes);
-app.use("/api/inventory", inventoryRoutes);
+app.use("/api/product", productRoutes);
+app.use("/api/productdetail", productDetailRoutes);
 app.use("/api/login", loginRoutes);
 app.use("/api/category", categoryRoutes);
 app.use("/api/promotion",promotionRoutes);

@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
-const InventorySchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Барааны нэр оруулна уу"],
     unique: false,
-    maxlength: [13, "Барааны урт дээд тал нь 50 тэмдэгт байх ёстой."],
+    maxlength: [50, "Барааны урт дээд тал нь 50 тэмдэгт байх ёстой."],
   },
   price: {
     type: Number,
@@ -52,4 +52,4 @@ const InventorySchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Inventory", InventorySchema);
+module.exports = mongoose.model("Product", ProductSchema);

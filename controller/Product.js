@@ -1,12 +1,12 @@
-const Inventory = require("../models/Inventory");
+const Product = require("../models/Product");
 
-exports.getInventorys = async (req, res, next) => {
+exports.getProducts = async (req, res, next) => {
   try {
-    const inventories = await Inventory.find();
+    const products = await Product.find();
 
     res.status(200).json({
       success: true,
-      data: inventories,
+      data: products,
     });
   } catch (err) {
     res.status(400).json({
@@ -16,11 +16,11 @@ exports.getInventorys = async (req, res, next) => {
   }
 };
 
-exports.getInventory = async (req, res, next) => {
+exports.getProduct = async (req, res, next) => {
   try {
-    const inventory = await Inventory.findById(req.params.id);
+    const product = await Product.findById(req.params.id);
 
-    if (!inventory) {
+    if (!product) {
       return res.status(400).json({
         success: false,
         error: req.params.id + " ID-тэй бүтээгдэхүүн байхгүй.",
@@ -29,7 +29,7 @@ exports.getInventory = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      data: inventory,
+      data: product,
     });
   } catch (err) {
     res.status(400).json({
@@ -39,15 +39,15 @@ exports.getInventory = async (req, res, next) => {
   }
 };
 
-exports.createInventory = async (req, res, next) => {
+exports.createProduct = async (req, res, next) => {
   console.log("data: ", req.body);
 
   try {
-    const inventory = await Inventory.create(req.body);
+    const product = await Product.create(req.body);
 
     res.status(200).json({
       success: true,
-      data: inventory,
+      data: product,
     });
   } catch (err) {
     res.status(400).json({
@@ -57,14 +57,14 @@ exports.createInventory = async (req, res, next) => {
   }
 };
 
-exports.updateInventory = async (req, res, next) => {
+exports.updateProduct = async (req, res, next) => {
   try {
-    const inventory = await Inventory.findByIdAndUpdate(req.params.id, req.body, {
+    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
 
-    if (!inventory) {
+    if (!product) {
       return res.status(400).json({
         success: false,
         error: req.params.id + " ID-тэй бүтээгдэхүүн байхгүй.",
@@ -73,7 +73,7 @@ exports.updateInventory = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      data: inventory,
+      data: product,
     });
   } catch (err) {
     res.status(400).json({
@@ -83,11 +83,11 @@ exports.updateInventory = async (req, res, next) => {
   }
 };
 
-exports.deleteInventory = async (req, res, next) => {
+exports.deleteProduct = async (req, res, next) => {
   try {
-    const inventory = await Inventory.findByIdAndDelete(req.params.id);
+    const product = await Product.findByIdAndDelete(req.params.id);
 
-    if (!inventory) {
+    if (!product) {
       return res.status(400).json({
         success: false,
         error: req.params.id + " ID-тэй бүтээгдэхүүн байхгүй.",
@@ -96,7 +96,7 @@ exports.deleteInventory = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      data: inventory,
+      data: product,
     });
   } catch (err) {
     res.status(400).json({
