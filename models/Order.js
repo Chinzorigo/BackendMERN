@@ -25,7 +25,7 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 150
-    },
+    }
 })
 
 module.exports = mongoose.model("Order", OrderSchema);

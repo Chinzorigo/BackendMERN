@@ -4,12 +4,12 @@ exports.getProductDetails = async (res) => {
     try {
         const productDetails = await ProductDetail.find();
 
-        return res.status(200).json({
+        res.status(200).json({
             sucess: true,
             data: productDetails
         })
     } catch (err) {
-        return res.status(400).json({
+        res.status(400).json({
             success: false,
             error: err.message || err
         });

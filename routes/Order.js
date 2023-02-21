@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 const {
     getOrders,
     getOrder,
@@ -7,12 +6,13 @@ const {
     updateOrder,
     deleteOrder
 } = require ("../controller/Order");
+const router = express.Router();
 
 //api/order
 router.route("/").get(getOrders).post(createOrder);
 router
     .route("/:id")
-    .get("getOrder")
+    .get(getOrder)
     .put(updateOrder)
     .delete(deleteOrder)
 module.exports = router;
