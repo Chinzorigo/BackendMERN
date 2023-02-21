@@ -70,6 +70,24 @@ exports.updateOrder = async (req, res) => {
         return res.status(400).json({
             success: false,
             error: err.message || err
+        });
+    }
+};
+
+exports.deleteOrder = async (req, res) => {
+    try {
+        const order = await Order.findOneAndDelete(req.params.id);
+
+        if(!order) throw new Error(`${req.params.id} ID-тай захиалга олдсонгүй.`);
+
+        return res.status(200).json({
+            success: true,
+            data: order
+        })
+    } catch (err) {
+        return res.status.json(400).json({
+            success: false,
+            error: err.message || err
         })
     }
 }
