@@ -3,11 +3,32 @@ const dotenv = require("dotenv");
 var path = require("path");
 var rfs = require("rotating-file-stream");
 const connectDB = require("./config/db");
+const cors = require("cors");
 
 // Аппын тохиргоог process.env рүү ачаалах
 dotenv.config({ path: "./config/config.env" });
 
 connectDB();
+
+//domain that can call this api
+var whitelist = ["http://localhost:3000"];
+
+
+var corsOptions = {
+  origin: function (origin, callback) {
+    if (origin === undefined || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    
+    } else {
+      callback(new Error("Nice try..."));
+    }
+  },
+  allowedHeaders: "Authorization, Set-Cookie, Content-Type",
+  methods: "GET, POST, PUT, DELETE",
+  credentials: true
+  
+
+}
 
 var morgan = require("morgan");
 const logger = require("./middleware/logger");
@@ -31,7 +52,7 @@ const app = express();
 
 // Body parser
 app.use(express.json());  
-
+app.use(cors(corsOptions));
 app.use(logger);
 app.use(morgan("combined", { stream: accessLogStream }));
 app.use("/api/users", usersRoutes);
