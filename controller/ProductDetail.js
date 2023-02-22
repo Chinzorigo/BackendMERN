@@ -1,6 +1,6 @@
 const ProductDetail = require("../models/ProductDetail");
 
-exports.getProductDetails = async (res) => {
+exports.getProductDetails = async (req, res) => {
     try {
         const productDetails = await ProductDetail.find();
 

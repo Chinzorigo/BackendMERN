@@ -1,6 +1,6 @@
 const Order = require("../models/Order");
 
-exports.getOrders = async(res) => {
+exports.getOrders = async(req, res) => {
     try {
         const orders = await Order.find();
 
@@ -16,7 +16,7 @@ exports.getOrders = async(res) => {
     }
 };
 
-exports.getOrder = async (req, res) => {
+exports.getOrder = async (req, res, next) => {
     try {
         const order = await Order.findById(req.params.id);
 
@@ -76,8 +76,7 @@ exports.updateOrder = async (req, res) => {
 
 exports.deleteOrder = async (req, res) => {
     try {
-        const order = await Order.findOneAndDelete(req.params.id);
-
+        const order = await Order.findByIdAndDelete(req.params.id);
         if(!order) throw new Error(`${req.params.id} ID-тай захиалга олдсонгүй.`);
 
         return res.status(200).json({
@@ -85,7 +84,7 @@ exports.deleteOrder = async (req, res) => {
             data: order
         })
     } catch (err) {
-        return res.status.json(400).json({
+        return res.status(400).json({
             success: false,
             error: err.message || err
         })
