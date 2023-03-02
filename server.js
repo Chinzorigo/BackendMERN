@@ -11,7 +11,7 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 
 //domain that can call this api
-var whitelist = ['https://ecommerce4showcase.vercel.app', 'http://localhost:3000'  ];
+var whitelist = [ 'https://ecommerce4showcase.onrender.com','https://ecommerce4showcase.vercel.app', 'http://localhost:3000'  ];
 
 
 var corsOptions = {
