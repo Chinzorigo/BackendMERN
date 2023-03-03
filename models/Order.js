@@ -25,6 +25,10 @@ const OrderSchema = new mongoose.Schema({
         type: String,
         required: true,
         maxlength: 150
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
     }
 })
 

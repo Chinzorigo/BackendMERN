@@ -41,6 +41,7 @@ const categoryRoutes = require("./routes/Category");
 const promotionRoutes = require("./routes/Promotion");
 const productDetailRoutes = require("./routes/ProductDetail");
 const orderRoutes = require("./routes/Order");
+const paymentRoutes = require("./routes/Payment")
 
 // create a write stream (in append mode)
 var accessLogStream = rfs.createStream("access.log", {
@@ -62,7 +63,7 @@ app.use("/api/login", loginRoutes);
 app.use("/api/category", categoryRoutes);
 app.use("/api/promotion",promotionRoutes);
 app.use("/api/order", orderRoutes);
-
+app.use("/api/payment", paymentRoutes)
 
 const server = app.listen(
   process.env.PORT,
