@@ -19,7 +19,6 @@ exports.getProductDetails = async (req, res) => {
 exports.getProductDetail = async (req, res) => {
     try {
         const productDetail = await ProductDetail.findById(req.params.id);
-
         if (!productDetail) throw new Error(`${req.params.id} ID-тай бүтээгдэхүүний дэлгэрэнгүй олдсонгүй`);
 
         return res.status(200).json({
