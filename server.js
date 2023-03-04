@@ -45,7 +45,8 @@ const paymentRoutes = require("./routes/Payment");
 const beginBalanceRoutes = require("./routes/BeginBalance");
 const shipmentRoutes = require("./routes/Shipment");
 const unitRoutes = require("./routes/Unit");
-const serviceRoutes = require("./routes/Service")
+const serviceRoutes = require("./routes/Service");
+const serviceCategoryRoutes = require("./routes/ServiceCategory");
 
 // create a write stream (in append mode)
 var accessLogStream = rfs.createStream("access.log", {
@@ -72,6 +73,7 @@ app.use("/api/beginbalance", beginBalanceRoutes);
 app.use("/api/shipment", shipmentRoutes);
 app.use("/api/unit", unitRoutes);
 app.use("/api/service", serviceRoutes);
+app.use("/api/servicecategory", serviceCategoryRoutes);
 
 const server = app.listen(
   process.env.PORT,

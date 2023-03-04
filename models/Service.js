@@ -4,12 +4,21 @@ const ServiceSchema = new mongoose.Schema ({
     serviceName: {
         type: String,
         required: true,
+        unique: true,
         maxlength: 50
     },
     serviceCategory: {
         type: String,
         required: true,
         maxlength: 50
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    quantity: {
+        type: Number,
+        required: true
     },
     description:{
         type: String,
