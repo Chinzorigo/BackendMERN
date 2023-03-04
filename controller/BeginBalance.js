@@ -71,8 +71,7 @@ exports.updateBeginBalance = async ( req, res ) => {
 exports.deleteBeginBalance = async ( req, res ) => {
     try {
         const beginBalance = await BeginBalance.findByIdAndDelete(req.params.id);
-        
-        if(!beginBalance) throw new Error(`${req.params.id} ID-тай хүн байхгүй`);
+        if(!beginBalance) throw new Error(`${req.params.id} ID-тай эхлэл баланс байхгүй`);
         
         return res.status(200).json({
             success: true,
