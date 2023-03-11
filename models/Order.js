@@ -14,12 +14,13 @@ const OrderSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true,
-        max:9999999
+        max:9999999999
     },
     totalPrice: {
         type: Number,
         required: true,
-        max: 9999999
+        max: 9999999999
+
     },
     description: {
         type: String,
