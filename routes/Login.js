@@ -5,7 +5,8 @@ const{
     getLogin,
     createLogin,
     updateLogin,
-    deleteLogin
+    deleteLogin,
+    checkLogin
 } = require("../controller/Login");
 
 const router = express.Router();
@@ -18,5 +19,8 @@ router
     .get(getLogin)
     .put(updateLogin)
     .delete(deleteLogin);
+
+// Check if login information is valid
+router.route("/check").post(checkLogin);
 
 module.exports = router;

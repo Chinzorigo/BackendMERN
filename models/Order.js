@@ -14,7 +14,7 @@ const OrderSchema = new mongoose.Schema({
     quantity: {
         type: Number,
         required: true,
-        max:9999999999
+        maxlength:9999999999
     },
     totalPrice: {
         type: Number,

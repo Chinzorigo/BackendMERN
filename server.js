@@ -5,13 +5,15 @@ var rfs = require("rotating-file-stream");
 const connectDB = require("./config/db");
 const cors = require("cors");
 
+const { checkLogin } =  require('./controller/Login');
+
 // Аппын тохиргоог process.env рүү ачаалах
 dotenv.config({ path: "./config/config.env" });
 
 connectDB();
 
 //domain that can call this api
-var whitelist = [ 'https://ecommerce4showcase.onrender.com','https://ecommerce4showcase.vercel.app', 'http://localhost:3000'  ];
+var whitelist = [ 'https://frontendmern.vercel.app/', 'http://localhost:3000'  ];
 
 
 var corsOptions = {
@@ -74,6 +76,8 @@ app.use("/api/shipment", shipmentRoutes);
 app.use("/api/unit", unitRoutes);
 app.use("/api/service", serviceRoutes);
 app.use("/api/servicecategory", serviceCategoryRoutes);
+
+app.use("/api/login/check", checkLogin);
 
 const server = app.listen(
   process.env.PORT,
