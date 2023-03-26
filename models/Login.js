@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const LoginSchema = new mongoose.Schema({
     email: {
@@ -23,5 +24,10 @@ const LoginSchema = new mongoose.Schema({
         default: Date.now
     }
 })
+
+LoginSchema.pre("save", async function() {
+    const encrypt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, encrypt);
+});
 
 module.exports = mongoose.model("Login", LoginSchema);
